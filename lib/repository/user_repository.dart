@@ -40,7 +40,7 @@ class UserRepository {
         SpUtil.putString(
             CacheConstants.refreshToken, res["data"]["refresh_token"]);
 
-        Get.offAllNamed(Routes.main);
+        Get.offAllNamed(Routes.home);
         toast("token刷新成功");
         return true;
       }

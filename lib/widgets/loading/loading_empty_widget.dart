@@ -20,10 +20,10 @@ class _LoadingEmptyWidgetState extends State<LoadingEmptyWidget> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(
-          width: 200.w,
+          width: 330.w,
           child: Image.asset(
-            'assets/images/no_data.png',
-            width: 200.w,
+            'assets/images/empty.png',
+            width: 330.w,
             fit: BoxFit.fitWidth,
           ),
         ),

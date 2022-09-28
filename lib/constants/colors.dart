@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ColorConstants {
   /// 全局色调
-  static Color appColor = const Color(0xffE82B2F);
+  static Color appColor = const Color(0xff71c1f4);
 
   /// appBar背景色
   static Color appbarColor = const Color(0xff2571FF);

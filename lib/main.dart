@@ -64,7 +64,7 @@ class _MyAppState extends State<MyApp> {
     final botToastBuilder = BotToastInit(); //1. call BotToastInit
 
     return ScreenUtilInit(
-      designSize: const Size(428, 866),
+      designSize: const Size(375, 667),
       builder: (ctx, child) => GestureDetector(
         onTap: () {
           FocusScopeNode focus = FocusScope.of(context);
@@ -87,7 +87,8 @@ class _MyAppState extends State<MyApp> {
             smartManagement: SmartManagement.keepFactory,
             navigatorObservers: [BotToastNavigatorObserver()],
             builder: (ctx, widget) {
-              widget = FlutterEasyLoading(child: botToastBuilder(context, widget));
+              widget =
+                  FlutterEasyLoading(child: botToastBuilder(context, widget));
 
               return MediaQuery(
                 ///Setting font does not change with system font size
