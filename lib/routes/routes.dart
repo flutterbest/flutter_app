@@ -7,6 +7,7 @@ import 'package:flutter_quick/modules/user/edit_phone/view.dart';
 import 'package:flutter_quick/modules/webview/view.dart';
 import 'package:get/get.dart';
 
+import '../modules/about/view.dart';
 import '../modules/camera/add/view.dart';
 import '../modules/camera/detail/view.dart';
 import '../modules/camera/edit/view.dart';
@@ -36,6 +37,7 @@ class Routes {
   static const String editPhone = "/editPhone";
   static const String info = "/info";
   static const String setting = "/setting";
+  static const String about = "/about";
 
   /// 初始化路由
   static String initialRoute = home;
@@ -110,5 +112,10 @@ class Routes {
         middlewares: [AuthMiddleware()],
         name: setting,
         page: () => SettingPage()),
+    GetPage(
+      middlewares: [AuthMiddleware()],
+      name: about,
+      page: () => AboutPage(),
+    ),
   ];
 }

@@ -18,6 +18,102 @@ class HomePage extends StatelessWidget {
     return GetBuilder<HomeLogic>(
       builder: (_) {
         return Scaffold(
+          key: state.scaffoldKey,
+          drawer: Drawer(
+            width: 200.w,
+            backgroundColor: Color(0xfff6f6f6),
+            child: SafeArea(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: 30.w,
+                  horizontal: 15.w,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Get.toNamed(Routes.info);
+                      },
+                      child: Image.asset(
+                        "assets/images/avatar.png",
+                        width: 80.w,
+                      ),
+                    ),
+                    SizedBox(height: 40.w),
+                    GestureDetector(
+                      onTap: () {
+                        Get.toNamed(Routes.setting);
+                      },
+                      behavior: HitTestBehavior.opaque,
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            "assets/images/drawer1.png",
+                            width: 20.w,
+                          ),
+                          SizedBox(width: 15.w),
+                          Text(
+                            "软件设置",
+                            style: TextStyle(
+                              fontSize: 16.sp,
+                              color: Color(0xff1B2121),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 30.w),
+                    GestureDetector(
+                      onTap: () {
+                        Get.toNamed(Routes.about);
+                      },
+                      behavior: HitTestBehavior.opaque,
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            "assets/images/drawer2.png",
+                            width: 20.w,
+                          ),
+                          SizedBox(width: 15.w),
+                          Text(
+                            "关于我们",
+                            style: TextStyle(
+                              fontSize: 16.sp,
+                              color: Color(0xff1B2121),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Expanded(child: Container()),
+                    GestureDetector(
+                      onTap: () {
+                        Get.offAllNamed(Routes.login);
+                      },
+                      behavior: HitTestBehavior.opaque,
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            "assets/images/drawer3.png",
+                            width: 20.w,
+                          ),
+                          SizedBox(width: 15.w),
+                          Text(
+                            "退出登录",
+                            style: TextStyle(
+                              fontSize: 16.sp,
+                              color: Color(0xff1B2121),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
           appBar: AppBar(
             backgroundColor: ColorConstants.appColor,
             elevation: 0,
@@ -25,7 +121,9 @@ class HomePage extends StatelessWidget {
             centerTitle: true,
             leadingWidth: 30.w,
             leading: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                state.scaffoldKey.currentState?.openDrawer();
+              },
               child: Padding(
                 padding: EdgeInsets.only(left: 10),
                 child: Center(
