@@ -76,7 +76,7 @@ class InfoPage extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Get.to(Routes.editName);
+                            Get.toNamed(Routes.editName);
                           },
                           child: Container(
                             width: 360.w,
@@ -118,7 +118,7 @@ class InfoPage extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Get.to(Routes.editPhone);
+                            Get.toNamed(Routes.editPhone);
                           },
                           child: Container(
                             width: 360.w,
@@ -159,7 +159,9 @@ class InfoPage extends StatelessWidget {
                           ),
                         ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            _dialog();
+                          },
                           child: Container(
                             width: 360.w,
                             padding: EdgeInsets.symmetric(vertical: 15.w),
@@ -240,6 +242,99 @@ class InfoPage extends StatelessWidget {
                 ),
               )
             ],
+          ),
+        );
+      },
+    );
+  }
+
+  _dialog() {
+    showDialog(
+      context: Get.context!,
+      builder: (ctx) {
+        return Center(
+          child: Container(
+            width: 300.w,
+            height: 160.w,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(height: 15.w),
+                Text(
+                  "注销账号",
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    color: Color(0xff333333),
+                  ),
+                ),
+                SizedBox(height: 15.w),
+                Text(
+                  "是否确定注销此账号\n注销之后将所有的数据",
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    color: Color(0xff666666),
+                  ),
+                ),
+                Expanded(child: Container()),
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: Container(
+                        width: 150.w,
+                        height: 50.w,
+                        decoration: BoxDecoration(
+                          border: Border(
+                            top: BorderSide(
+                              color: Color(0xff999999).withOpacity(.1),
+                            ),
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "取消",
+                            style: TextStyle(
+                              fontSize: 18.sp,
+                              color: Color(0xff333333),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: Container(
+                        width: 150.w,
+                        height: 50.w,
+                        decoration: BoxDecoration(
+                          color: Color(0xff5DB1FB),
+                          borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(10),
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "确定",
+                            style: TextStyle(
+                              fontSize: 18.sp,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         );
       },
