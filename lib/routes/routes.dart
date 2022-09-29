@@ -1,6 +1,7 @@
 import 'package:flutter_quick/modules/auth/login/view.dart';
 import 'package:flutter_quick/modules/auth/register/view.dart';
-
+import 'package:flutter_quick/modules/camera/cancel_share/view.dart';
+import 'package:flutter_quick/modules/camera/wifi_password/view.dart';
 import 'package:flutter_quick/modules/splash/view.dart';
 import 'package:flutter_quick/modules/user/edit_name/view.dart';
 import 'package:flutter_quick/modules/user/edit_phone/view.dart';
@@ -38,6 +39,8 @@ class Routes {
   static const String info = "/info";
   static const String setting = "/setting";
   static const String about = "/about";
+  static const String wifiPassword = "/wifiPassword";
+  static const String cancelShare = "/cancelShare";
 
   /// 初始化路由
   static String initialRoute = home;
@@ -116,6 +119,16 @@ class Routes {
       middlewares: [AuthMiddleware()],
       name: about,
       page: () => AboutPage(),
+    ),
+    GetPage(
+      middlewares: [AuthMiddleware()],
+      name: wifiPassword,
+      page: () => WifiPasswordPage(),
+    ),
+    GetPage(
+      middlewares: [AuthMiddleware()],
+      name: cancelShare,
+      page: () => CancelSharePage(),
     ),
   ];
 }

@@ -30,4 +30,9 @@ class DetailLogic extends GetxController
   Future initData({int currentPage = 1}) {
     return UserRepository.artificerIntroduce(1);
   }
+
+  changeTab(int tab) {
+    state.tab = tab;
+    update();
+  }
 }

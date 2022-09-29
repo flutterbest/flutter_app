@@ -9,9 +9,9 @@ import '../../../utils/helper.dart';
 import '../../../widgets/refresh_widget.dart';
 import 'state.dart';
 
-class ShareLogic extends GetxController
+class CancelShareLogic extends GetxController
     with GetSingleTickerProviderStateMixin, RefreshListMixin {
-  final state = ShareState();
+  final state = CancelShareState();
 
   @override
   void onInit() {

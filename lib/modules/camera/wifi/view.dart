@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quick/constants/colors.dart';
+import 'package:flutter_quick/routes/routes.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -17,115 +18,135 @@ class WifiPage extends StatelessWidget {
     return GetBuilder<WifiLogic>(
       builder: (_) {
         return Scaffold(
+          backgroundColor: Color(0xfff6f6f6),
           appBar: AppBar(
             backgroundColor: ColorConstants.appColor,
             elevation: 0,
-            title: Text("设备列表"),
+            title: Text("Wi-Fi"),
             centerTitle: true,
-            leadingWidth: 30.w,
-            leading: GestureDetector(
-              onTap: () {},
-              child: Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: Center(
-                  child: Image.asset(
-                    "assets/images/user.png",
-                    width: 30.w,
+          ),
+          body: Padding(
+            padding: EdgeInsets.symmetric(vertical: 15.w, horizontal: 20.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "已连接Wi-Fi",
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    color: Color(0xff999999),
                   ),
                 ),
-              ),
-            ),
-            actions: [
-              GestureDetector(
-                onTap: () {},
-                child: Image.asset(
-                  "assets/images/message.png",
-                  width: 25.w,
-                ),
-              ),
-              SizedBox(width: 10),
-              GestureDetector(
-                onTap: () {},
-                child: Image.asset(
-                  "assets/images/search.png",
-                  width: 25.w,
-                ),
-              ),
-              SizedBox(width: 10),
-              GestureDetector(
-                onTap: () {},
-                child: Image.asset(
-                  "assets/images/add.png",
-                  width: 25.w,
-                ),
-              ),
-              SizedBox(width: 10),
-            ],
-          ),
-          body: ListView.builder(
-            padding: EdgeInsets.symmetric(horizontal: 15.w),
-            itemBuilder: (context, index) {
-              return Container(
-                margin: EdgeInsets.only(top: 15.w),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      "assets/images/tmp1.png",
-                      width: 345.w,
-                      height: 154.w,
-                    ),
-                    Container(
-                        padding: EdgeInsets.all(15.w),
-                        color: Color(0xffefefef),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "设备名称",
-                                  style: TextStyle(
-                                    color: Color(0xff333333),
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  margin: EdgeInsets.only(bottom: 20.w, top: 10.w),
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 10.w,
+                        horizontal: 15.w,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "huuytytrghwi",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff333333),
                                 ),
-                                Text(
-                                  "链接网络：HTMILWI-FI",
-                                  style: TextStyle(
-                                    color: Color(0xff666666),
-                                    fontSize: 14.sp,
-                                  ),
-                                )
+                              ),
+                              Text(
+                                "加密",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Image.asset(
+                            "assets/images/wifi.png",
+                            width: 30.w,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Text(
+                  "可用Wi-Fi",
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    color: Color(0xff999999),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(top: 10.w),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: ListView.separated(
+                      padding: EdgeInsets.symmetric(horizontal: 15.w),
+                      separatorBuilder: (ctx, i) {
+                        return Divider(
+                          color: Color(0xff999999).withOpacity(.2),
+                        );
+                      },
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          behavior: HitTestBehavior.opaque,
+                          onTap: () {
+                            Get.toNamed(Routes.wifiPassword);
+                          },
+                          child: Container(
+                            padding: EdgeInsets.symmetric(vertical: 10.w),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "huuytytrghwi",
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        color: Color(0xff333333),
+                                      ),
+                                    ),
+                                    Text(
+                                      "加密",
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        color: Color(0xff666666),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Image.asset(
+                                  "assets/images/wifi.png",
+                                  width: 30.w,
+                                ),
                               ],
                             ),
-                            Row(
-                              children: [
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Image.asset(
-                                    "assets/images/edit.png",
-                                    width: 25.w,
-                                  ),
-                                ),
-                                SizedBox(width: 20.w),
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Image.asset(
-                                    "assets/images/share.png",
-                                    width: 25.w,
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                        )),
-                  ],
+                          ),
+                        );
+                      },
+                      itemCount: 50,
+                    ),
+                  ),
                 ),
-              );
-            },
-            itemCount: 5,
+              ],
+            ),
           ),
         );
       },

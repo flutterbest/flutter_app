@@ -1,8 +1,12 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_quick/constants/colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../../routes/routes.dart';
+import '../../../widgets/buttons/app_button.dart';
 import 'logic.dart';
 import 'state.dart';
 
@@ -20,112 +24,96 @@ class SharePage extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: ColorConstants.appColor,
             elevation: 0,
-            title: Text("设备列表"),
+            title: Text("共享设备"),
             centerTitle: true,
-            leadingWidth: 30.w,
-            leading: GestureDetector(
-              onTap: () {},
-              child: Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: Center(
-                  child: Image.asset(
-                    "assets/images/user.png",
-                    width: 30.w,
+          ),
+          body: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 15.w),
+                  Text(
+                    "设备名称:xxxx",
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      color: Color(0xff999999),
+                    ),
                   ),
-                ),
+                  ...state.cList
+                      .mapIndexed(
+                        (index, element) => Container(
+                          margin: EdgeInsets.only(top: 10.w),
+                          child: TextField(
+                            maxLines: 1,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 17.sp,
+                            ),
+                            cursorColor: Colors.black,
+                            textAlign: TextAlign.left,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly,
+                            ],
+                            decoration: InputDecoration(
+                              prefixIcon: Center(
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "好友账号",
+                                  ),
+                                ),
+                              ),
+                              prefixIconConstraints:
+                                  BoxConstraints(maxWidth: 80.w),
+                              contentPadding:
+                                  EdgeInsets.only(top: 15.w, bottom: 15.w),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: ColorConstants.borderColor,
+                                  width: 1,
+                                ),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: ColorConstants.borderColor,
+                                  width: 1,
+                                ),
+                              ),
+                              hintText: '请输入好友的账号',
+                              hintStyle: TextStyle(
+                                color: const Color(0xff999999),
+                                fontSize: 17.sp,
+                              ),
+                              suffixIcon: state.cList.length - 1 != index
+                                  ? null
+                                  : GestureDetector(
+                                      onTap: () {
+                                        logic.addField();
+                                      },
+                                      child:
+                                          Image.asset("assets/images/add2.png"),
+                                    ),
+                              suffixIconConstraints: BoxConstraints(
+                                maxWidth: 16.w,
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                      .toList(),
+                  SizedBox(height: 60.w),
+                  AppButton(
+                    title: "发送共享",
+                    onTap: () {
+                      Get.toNamed(Routes.cancelShare);
+                    },
+                  ),
+                ],
               ),
             ),
-            actions: [
-              GestureDetector(
-                onTap: () {},
-                child: Image.asset(
-                  "assets/images/message.png",
-                  width: 25.w,
-                ),
-              ),
-              SizedBox(width: 10),
-              GestureDetector(
-                onTap: () {},
-                child: Image.asset(
-                  "assets/images/search.png",
-                  width: 25.w,
-                ),
-              ),
-              SizedBox(width: 10),
-              GestureDetector(
-                onTap: () {},
-                child: Image.asset(
-                  "assets/images/add.png",
-                  width: 25.w,
-                ),
-              ),
-              SizedBox(width: 10),
-            ],
-          ),
-          body: ListView.builder(
-            padding: EdgeInsets.symmetric(horizontal: 15.w),
-            itemBuilder: (context, index) {
-              return Container(
-                margin: EdgeInsets.only(top: 15.w),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      "assets/images/tmp1.png",
-                      width: 345.w,
-                      height: 154.w,
-                    ),
-                    Container(
-                        padding: EdgeInsets.all(15.w),
-                        color: Color(0xffefefef),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "设备名称",
-                                  style: TextStyle(
-                                    color: Color(0xff333333),
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Text(
-                                  "链接网络：HTMILWI-FI",
-                                  style: TextStyle(
-                                    color: Color(0xff666666),
-                                    fontSize: 14.sp,
-                                  ),
-                                )
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Image.asset(
-                                    "assets/images/edit.png",
-                                    width: 25.w,
-                                  ),
-                                ),
-                                SizedBox(width: 20.w),
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Image.asset(
-                                    "assets/images/share.png",
-                                    width: 25.w,
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                        )),
-                  ],
-                ),
-              );
-            },
-            itemCount: 5,
           ),
         );
       },

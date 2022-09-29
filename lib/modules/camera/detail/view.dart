@@ -20,112 +20,451 @@ class DetailPage extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: ColorConstants.appColor,
             elevation: 0,
-            title: Text("设备列表"),
+            title: Text("设备名称"),
             centerTitle: true,
-            leadingWidth: 30.w,
-            leading: GestureDetector(
-              onTap: () {},
-              child: Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: Center(
-                  child: Image.asset(
-                    "assets/images/user.png",
-                    width: 30.w,
-                  ),
-                ),
-              ),
-            ),
             actions: [
               GestureDetector(
                 onTap: () {},
-                child: Image.asset(
-                  "assets/images/message.png",
-                  width: 25.w,
-                ),
-              ),
-              SizedBox(width: 10),
-              GestureDetector(
-                onTap: () {},
-                child: Image.asset(
-                  "assets/images/search.png",
-                  width: 25.w,
-                ),
-              ),
-              SizedBox(width: 10),
-              GestureDetector(
-                onTap: () {},
-                child: Image.asset(
-                  "assets/images/add.png",
-                  width: 25.w,
+                child: Center(
+                  child: Text(
+                    "切换视频",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
               SizedBox(width: 10),
             ],
           ),
-          body: ListView.builder(
-            padding: EdgeInsets.symmetric(horizontal: 15.w),
-            itemBuilder: (context, index) {
-              return Container(
-                margin: EdgeInsets.only(top: 15.w),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      "assets/images/tmp1.png",
-                      width: 345.w,
-                      height: 154.w,
-                    ),
-                    Container(
-                        padding: EdgeInsets.all(15.w),
-                        color: Color(0xffefefef),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          body: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Image.asset(
+                  "assets/images/tmp1.png",
+                  width: 375.w,
+                  height: 250.w,
+                  fit: BoxFit.cover,
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 20.w,
+                    horizontal: 15.w,
+                  ),
+                  margin: EdgeInsets.only(bottom: 20.w),
+                  color: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onTap: () {
+                          state.tab = 0;
+                          logic.update();
+                        },
+                        child: Column(
                           children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "设备名称",
-                                  style: TextStyle(
-                                    color: Color(0xff333333),
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Text(
-                                  "链接网络：HTMILWI-FI",
-                                  style: TextStyle(
-                                    color: Color(0xff666666),
-                                    fontSize: 14.sp,
-                                  ),
-                                )
-                              ],
+                            Image.asset(
+                              "assets/images/detail1.png",
+                              height: 24.w,
                             ),
-                            Row(
-                              children: [
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Image.asset(
-                                    "assets/images/edit.png",
-                                    width: 25.w,
-                                  ),
-                                ),
-                                SizedBox(width: 20.w),
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Image.asset(
-                                    "assets/images/share.png",
-                                    width: 25.w,
-                                  ),
-                                ),
-                              ],
+                            SizedBox(height: 10.w),
+                            Text(
+                              "对讲",
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: Color(0xff333333),
+                              ),
                             )
                           ],
-                        )),
-                  ],
+                        ),
+                      ),
+                      GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onTap: () {
+                          state.tab = 1;
+                          logic.update();
+                        },
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              "assets/images/detail2.png",
+                              height: 24.w,
+                            ),
+                            SizedBox(height: 10.w),
+                            Text(
+                              "镜像",
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: Color(0xff333333),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onTap: () {
+                          state.tab = 2;
+                          logic.update();
+                        },
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              "assets/images/detail3.png",
+                              height: 24.w,
+                            ),
+                            SizedBox(height: 10.w),
+                            Text(
+                              "翻转",
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: Color(0xff333333),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onTap: () {
+                          state.tab = 3;
+                          logic.update();
+                        },
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              "assets/images/detail4.png",
+                              height: 24.w,
+                            ),
+                            SizedBox(height: 10.w),
+                            Text(
+                              "公网",
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: Color(0xff333333),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              );
-            },
-            itemCount: 5,
+                if (state.tab == 3)
+                  Container(
+                    width: 375.w,
+                    padding:
+                        EdgeInsets.symmetric(vertical: 15.w, horizontal: 15.w),
+                    margin: EdgeInsets.only(bottom: 20.w),
+                    color: Colors.white,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "网络信息",
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            color: Color(0xff333333),
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(vertical: 15.w),
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Color(0xff999999).withOpacity(.2),
+                              ),
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "IP地址",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                              Text(
+                                "255.255.255.0",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(vertical: 15.w),
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Color(0xff999999).withOpacity(.2),
+                              ),
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "子网掩码",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                              Text(
+                                "255.255.255.0",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(vertical: 15.w),
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Color(0xff999999).withOpacity(.2),
+                              ),
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "网关",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                              Text(
+                                "255.255.255.0",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(vertical: 15.w),
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Color(0xff999999).withOpacity(.2),
+                              ),
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "DNS服务器",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                              Text(
+                                "255.255.255.0",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                if (state.tab != 3)
+                  Container(
+                    width: 375.w,
+                    padding:
+                        EdgeInsets.symmetric(vertical: 15.w, horizontal: 15.w),
+                    margin: EdgeInsets.only(bottom: 20.w),
+                    color: Colors.white,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "颜色调整",
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            color: Color(0xff333333),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 20.w),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "视频对比度调整",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                              Text(
+                                "${state.value1.toInt()}",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Slider(
+                          min: 0,
+                          max: 100,
+                          value: 10,
+                          onChanged: (v) {
+                            state.value1 = v;
+                            logic.update();
+                          },
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 20.w),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "视频饱和度调整",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                              Text(
+                                "${state.value2.toInt()}",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Slider(
+                          min: 0,
+                          max: 100,
+                          value: 10,
+                          onChanged: (v) {
+                            state.value2 = v;
+                            logic.update();
+                          },
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 20.w),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "视频亮度调整",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                              Text(
+                                "${state.value3.toInt()}",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Slider(
+                          min: 0,
+                          max: 100,
+                          value: 10,
+                          onChanged: (v) {
+                            state.value3 = v;
+                            logic.update();
+                          },
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 20.w),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "视频色相调整",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                              Text(
+                                "${state.value4.toInt()}",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Slider(
+                          min: 0,
+                          max: 100,
+                          value: 10,
+                          onChanged: (v) {
+                            state.value4 = v;
+                            logic.update();
+                          },
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 20.w),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "视频背光补偿",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                              Text(
+                                "${state.value5.toInt()}",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Color(0xff666666),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Slider(
+                          min: 0,
+                          max: 100,
+                          value: 10,
+                          onChanged: (v) {
+                            state.value5 = v;
+                            logic.update();
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+              ],
+            ),
           ),
         );
       },

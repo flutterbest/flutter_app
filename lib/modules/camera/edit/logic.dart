@@ -15,7 +15,6 @@ class EditLogic extends GetxController
   @override
   void onInit() {
     super.onInit();
-
     //
     eventBus.on<UpdateEvent>().listen((event) {
       update();
@@ -29,5 +28,11 @@ class EditLogic extends GetxController
   @override
   Future initData({int currentPage = 1}) {
     return UserRepository.artificerIntroduce(1);
+  }
+
+  showMore() {
+    state.showMore = !state.showMore;
+    update();
+    print("aaaaa");
   }
 }

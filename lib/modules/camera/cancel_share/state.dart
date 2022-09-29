@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class ShareState {
+class CancelShareState {
   List<TextEditingController> cList = [TextEditingController()];
-  ShareState() {
+  CancelShareState() {
     ///Initialize variables
   }
 }

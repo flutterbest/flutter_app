@@ -170,67 +170,73 @@ class HomePage extends StatelessWidget {
           body: ListView.builder(
             padding: EdgeInsets.symmetric(horizontal: 15.w),
             itemBuilder: (context, index) {
-              return Container(
-                margin: EdgeInsets.only(top: 15.w),
-                child: Column(
-                  children: [
-                    Image.asset(
-                      "assets/images/tmp1.png",
-                      width: 345.w,
-                      height: 154.w,
-                    ),
-                    Container(
-                        padding: EdgeInsets.all(15.w),
-                        color: Color(0xffefefef),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "设备名称",
-                                  style: TextStyle(
-                                    color: Color(0xff333333),
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.bold,
+              return GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () {
+                  Get.toNamed(Routes.detail);
+                },
+                child: Container(
+                  margin: EdgeInsets.only(top: 15.w),
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        "assets/images/tmp1.png",
+                        width: 345.w,
+                        height: 154.w,
+                      ),
+                      Container(
+                          padding: EdgeInsets.all(15.w),
+                          color: Color(0xffefefef),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "设备名称",
+                                    style: TextStyle(
+                                      color: Color(0xff333333),
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  "链接网络：HTMILWI-FI",
-                                  style: TextStyle(
-                                    color: Color(0xff666666),
-                                    fontSize: 14.sp,
+                                  Text(
+                                    "链接网络：HTMILWI-FI",
+                                    style: TextStyle(
+                                      color: Color(0xff666666),
+                                      fontSize: 14.sp,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      Get.toNamed(Routes.edit);
+                                    },
+                                    child: Image.asset(
+                                      "assets/images/edit.png",
+                                      width: 25.w,
+                                    ),
                                   ),
-                                )
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    Get.toNamed(Routes.edit);
-                                  },
-                                  child: Image.asset(
-                                    "assets/images/edit.png",
-                                    width: 25.w,
+                                  SizedBox(width: 20.w),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Get.toNamed(Routes.share);
+                                    },
+                                    child: Image.asset(
+                                      "assets/images/share.png",
+                                      width: 25.w,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(width: 20.w),
-                                GestureDetector(
-                                  onTap: () {
-                                    Get.toNamed(Routes.share);
-                                  },
-                                  child: Image.asset(
-                                    "assets/images/share.png",
-                                    width: 25.w,
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                        )),
-                  ],
+                                ],
+                              )
+                            ],
+                          )),
+                    ],
+                  ),
                 ),
               );
             },

@@ -133,8 +133,10 @@ class RegisterPage extends StatelessWidget {
                             ),
                           ),
                           prefixIconConstraints: BoxConstraints(maxWidth: 60.w),
-                          contentPadding:
-                              EdgeInsets.only(top: 15.w, bottom: 15.w),
+                          contentPadding: EdgeInsets.only(
+                            top: 15.w,
+                            bottom: 15.w,
+                          ),
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: ColorConstants.borderColor,
