@@ -7,7 +7,7 @@ class Config {
       env == 1 ? "https://26155t19p1.goho.co" : "http://app.lohanhome.com:8080";
 
   /// 应用名字
-  static const String appName = '罗汉到家技师端';
+  static const String appName = '网络相机';
 
   /// 接口验证通过时的返回码
   static const List<dynamic> successCodeValues = ["00000"];

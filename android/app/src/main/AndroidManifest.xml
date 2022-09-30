@@ -27,7 +27,7 @@
 
 
     <application
-        android:label="罗汉到家技师端"
+        android:label="网络相机"
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true" 
         android:icon="@mipmap/ic_launcher">

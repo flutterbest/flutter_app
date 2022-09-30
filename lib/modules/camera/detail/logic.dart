@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_quick/events.dart';
 import 'package:get/get.dart';
 import 'package:sp_util/sp_util.dart';
@@ -15,7 +16,7 @@ class DetailLogic extends GetxController
   @override
   void onInit() {
     super.onInit();
-
+    state.tabController = TabController(length: 2, vsync: this);
     //
     eventBus.on<UpdateEvent>().listen((event) {
       update();
