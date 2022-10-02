@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quick/routes/routes.dart';
-import 'package:flutter_quick/widgets/buttons/app_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -29,30 +27,6 @@ class SplashPage extends StatelessWidget {
                   "assets/images/splash.png",
                 ),
               ),
-            ),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Positioned(
-                  bottom: 160.h,
-                  child: AppButton(
-                    title: "登录",
-                    onTap: () {
-                      Get.toNamed(Routes.login);
-                    },
-                  ),
-                ),
-                Positioned(
-                  bottom: 88.h,
-                  child: AppButton(
-                    title: "注册",
-                    theme: 2,
-                    onTap: () {
-                      Get.toNamed(Routes.register);
-                    },
-                  ),
-                ),
-              ],
             ),
           );
         },

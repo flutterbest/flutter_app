@@ -25,12 +25,7 @@ void main() async {
   runApp(const MyApp());
 
   await enableFluttifyLog(false);
-  await AmapSearch.instance.updatePrivacyAgree(true);
-  await AmapSearch.instance.updatePrivacyShow(true);
-  await AmapService.instance.init(
-    iosKey: 'a726aed61502289f9e674d40fc70cd8a',
-    androidKey: '1ee0242f7d6b4a8294c69911e05c8a52',
-  );
+
 }
 
 class MyApp extends StatefulWidget {
